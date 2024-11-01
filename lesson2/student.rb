@@ -18,9 +18,10 @@ class Student
   def calculate_age
     now = Date.today
     age = now.year - @date_of_birth.year
-    age -= 1 if now < @date_of_birth + age.years
+    age -= 1 if now < @date_of_birth + age * 365 
     age
   end
+  
 
   def add_student
     unless @@students.any? { |s| s.surname == @surname && s.name == @name && s.date_of_birth == @date_of_birth }
